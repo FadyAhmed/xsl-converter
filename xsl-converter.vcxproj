@@ -18,6 +18,17 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="commentsMapping.h" />
+    <ClInclude Include="minifier.h" />
+    <ClInclude Include="parsing.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="classes.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="minifier.cpp" />
+    <ClCompile Include="parsing.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
@@ -88,6 +99,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <AdditionalIncludeDirectories>C:\Users\fady9\source\repos\xsl-converter;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalUsingDirectories>C:\Users\fady9\source\repos\xsl-converter;%(AdditionalUsingDirectories)</AdditionalUsingDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -138,16 +151,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="D:\projects\xml-editor\xsl-from-xml\classes.cpp" />
-    <ClCompile Include="D:\projects\xml-editor\xsl-from-xml\main.cpp" />
-    <ClCompile Include="D:\projects\xml-editor\xsl-from-xml\minifier.cpp" />
-    <ClCompile Include="D:\projects\xml-editor\xsl-from-xml\parsing.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="D:\projects\xml-editor\xsl-from-xml\minifier.h" />
-    <ClInclude Include="D:\projects\xml-editor\xsl-from-xml\parsing.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
