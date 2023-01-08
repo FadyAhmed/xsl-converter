@@ -1,0 +1,10 @@
+<!-- upper comment -->
+<note>
+    <!-- to comment -->
+    <to>Tove</to>
+    <!-- from comment -->
+    <from>Jani</from>
+    <heading>Reminder</heading>
+    <body>Don't forget me this weekend!</body>
+</note>
+<!-- lower comment -->
