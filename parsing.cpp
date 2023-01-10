@@ -434,7 +434,7 @@ Tree parseXmlTree(string& minString)
         else if (nextElemType == "closing tag")
         {
             openTags.pop();
-            if (openTags.size() != 0 && openTags.top()->isComment) {
+            while (openTags.size() != 0 && openTags.top()->isComment) {
                 openTags.pop();
             }
             // erase closing tag
