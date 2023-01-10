@@ -37,11 +37,14 @@
 	<vector>
 	<iostream>
 
-1673348221 source:c:\users\felzhraa\desktop\new folder\xsl-converter\main.cpp
+1673360342 source:c:\users\felzhraa\desktop\new folder\xsl-converter\main.cpp
 	"parsing.h"
 	<fstream>
 	"classes.cpp"
 	<string>
+	<map>
+	<iostream>
+	<vector>
 
 1673264283 c:\users\felzhraa\desktop\new folder\xsl-converter\parsing.h
 	<iostream>

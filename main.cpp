@@ -2,7 +2,12 @@
 #include <fstream>
 #include "classes.cpp"
 #include <string>
+#include <map>
+#include <iostream>
+#include <sstream>
+#include <vector>
 
+using namespace std;
 /*
 void mapComments(TreeNode* root) {
     // map each comment to node
@@ -31,22 +36,44 @@ string commentNodeType(TreeNode* root)
     }
 }
 
+
+
+
+
+string assignPath (TreeNode* root ,std:: map<string,string>paths)
+{   TreeNode* child = &(root->children[0]);
+    string key = child->value;//to
+    string path = paths[key];
+    return path;
+}
+
 void convertToIf(TreeNode* root)
-{   string attribute = "test";
+{
+    //for testing assignPath function only
+    map<string,string>paths;
+    paths["to"]="/Body/to";
+    paths["from"]="/Body/from";
+
+    string attribute = "test";
     root->value="xsl:if";
     root->keys.push_back(attribute);
-    root->values.push_back("path");
+    string path = assignPath(root ,paths);
+    root->values.push_back(path);
+
 }
 void convertToForEach(TreeNode* root)
 {   string attribute = "select";
     root->value ="xsl:for-each";
     root->keys.push_back(attribute);
     root->values.push_back("path");
+
+
 }
 
 void mapComments(TreeNode* root) {
     // map each comment to node
     // delete isCommentFlag
+
     if (root->isComment) {
        // root->value = "was Comment";
         string type =commentNodeType(root);
@@ -80,6 +107,7 @@ int main()
 
     // Close the file
     MyReadFile.close();
+
 
     ProcessedFile f = parseXml(xmlText);
     mapComments(&f.tree.root);
