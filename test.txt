@@ -1,15 +1,14 @@
 <!-- upper comment -->
 <note>
-    <!-- to comment -->
+    <!--Optional :-->
     <to>
       <s>sa</s>
       <ss>as</ss>
     </to>
     <aa>a</aa>
-    <!-- from comment -->
+    <!--Optional :-->
     <from>Jani</from>
     <heading>Reminder</heading>
     <body>Don't forget me this weekend!</body>
 </note>
 <!-- lower comment -->
-    

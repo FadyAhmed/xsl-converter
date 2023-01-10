@@ -32,3 +32,39 @@
 	<vector>
 	<iostream>
 
+1673264283 source:c:\users\felzhraa\desktop\new folder\xsl-converter\classes.cpp
+	<string>
+	<vector>
+	<iostream>
+
+1673348221 source:c:\users\felzhraa\desktop\new folder\xsl-converter\main.cpp
+	"parsing.h"
+	<fstream>
+	"classes.cpp"
+	<string>
+
+1673264283 c:\users\felzhraa\desktop\new folder\xsl-converter\parsing.h
+	<iostream>
+	<vector>
+	<string>
+	<stack>
+	"classes.cpp"
+	"minifier.h"
+
+1673264283 c:\users\felzhraa\desktop\new folder\xsl-converter\classes.cpp
+	<string>
+	<vector>
+	<iostream>
+
+1673264283 c:\users\felzhraa\desktop\new folder\xsl-converter\minifier.h
+	<string>
+	<algorithm>
+	<sstream>
+	<iostream>
+
+1673264283 source:c:\users\felzhraa\desktop\new folder\xsl-converter\minifier.cpp
+	"minifier.h"
+
+1673275254 source:c:\users\felzhraa\desktop\new folder\xsl-converter\parsing.cpp
+	"parsing.h"
+
