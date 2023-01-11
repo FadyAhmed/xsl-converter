@@ -32,7 +32,16 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="classes.cpp" />
+		<Unit filename="commentsMapping.cpp" />
+		<Unit filename="commentsMapping.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="minifier.cpp" />
+		<Unit filename="minifier.h" />
+		<Unit filename="parsing.cpp" />
+		<Unit filename="parsing.h" />
+		<Unit filename="sample.csv" />
+		<Unit filename="test.txt" />
 		<Extensions>
 			<lib_finder disable_auto="1" />
 		</Extensions>

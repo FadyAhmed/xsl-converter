@@ -2,7 +2,7 @@
 
 using namespace std;
 
-vector<string> getDeclarations(string& minString)
+vector<string> getDeclarations(string &minString)
 {
     vector<string> declarations;
     if (minString.empty() || minString[1] != '?')
@@ -32,7 +32,7 @@ void testGetDeclarations()
     for (int i = 0; i < declarations.size(); i++)
         cout << declarations[i] << endl;
     cout << "rest of minString: " << minString << endl
-        << endl;
+         << endl;
 
     // 1 declaration & root tag
     minString = "<?xml version=\"1.0\" encoding=\"UTF-8\" ?><user><id>0</id></user>";
@@ -42,7 +42,7 @@ void testGetDeclarations()
     for (int i = 0; i < declarations.size(); i++)
         cout << declarations[i] << endl;
     cout << "rest of minString: " << minString << endl
-        << endl;
+         << endl;
 
     // 2 declarations & root tag
     minString = "<?xml version=\"1.0\" encoding=\"UTF-8\"?><?xml-model href=\"data.rnc\" type=\"application/relax-ng-compact-syntax\"?><user><id>0</id></user>";
@@ -52,10 +52,10 @@ void testGetDeclarations()
     for (int i = 0; i < declarations.size(); i++)
         cout << declarations[i] << endl;
     cout << "rest of minString: " << minString << endl
-        << endl;
+         << endl;
 }
 
-vector<string> parseComments(string& minString)
+vector<string> parseComments(string &minString)
 {
     vector<string> comments;
     while (!minString.empty() && minString[1] == '!')
@@ -190,7 +190,7 @@ void testParseTag()
     cout << "\n\n";
 }
 
-string getNextElementType(string& minString)
+string getNextElementType(string &minString)
 {
     if (minString.empty())
         return "empty";
@@ -275,7 +275,7 @@ void testParseComment()
     cout << "\n\n";
 }
 
-TreeNode getNextElement(string& minString)
+TreeNode getNextElement(string &minString)
 {
     string nextElemType = getNextElementType(minString);
     if (nextElemType == "empty")
@@ -388,7 +388,7 @@ void testGetNextElement()
     cout << "\n\n";
 }
 
-Tree parseXmlTree(string& minString)
+Tree parseXmlTree(string &minString)
 {
     Tree tree;
     if (minString.empty())
@@ -405,7 +405,7 @@ Tree parseXmlTree(string& minString)
         return tree;
 
     // parsing the xml tree
-    stack<TreeNode*> openTags;
+    stack<TreeNode *> openTags;
     openTags.push(&tree.root);
     while (!openTags.empty())
     {
@@ -420,7 +420,7 @@ Tree parseXmlTree(string& minString)
             TreeNode n = getNextElement(minString);
             openTags.top()->children.push_back(n);
             // pushing the tag into stack of open tags
-            TreeNode* childTagAddress = &openTags.top()->children.back();
+            TreeNode *childTagAddress = &openTags.top()->children.back();
             openTags.push(childTagAddress);
         }
         else if (nextElemType == "opening tag")
@@ -428,13 +428,14 @@ Tree parseXmlTree(string& minString)
             TreeNode n = getNextElement(minString);
             openTags.top()->children.push_back(n);
             // pushing the tag into stack of open tags
-            TreeNode* childTagAddress = &openTags.top()->children.back();
+            TreeNode *childTagAddress = &openTags.top()->children.back();
             openTags.push(childTagAddress);
         }
         else if (nextElemType == "closing tag")
         {
             openTags.pop();
-            while (openTags.size() != 0 && openTags.top()->isComment) {
+            while (openTags.size() != 0 && openTags.top()->isComment)
+            {
                 openTags.pop();
             }
             // erase closing tag

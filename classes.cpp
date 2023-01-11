@@ -11,7 +11,7 @@ class TreeNode
 {
 public:
     string value;             // tagName | text | comment
-    /*xxx*/ TreeNode* parent; // deprecated
+    /*xxx*/ TreeNode *parent; // deprecated
     vector<TreeNode> children;
     vector<string> keys;   // for attributes
     vector<string> values; // for attributes
@@ -24,7 +24,7 @@ public:
         isComment = isText = false;
         value = "";
         parent = NULL;
-        path  = "/";
+        path = "/";
     }
     TreeNode(string type, string val)
     {
