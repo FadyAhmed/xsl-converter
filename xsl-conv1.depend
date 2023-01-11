@@ -2,24 +2,24 @@
 1584205420 source:c:\users\fahmed\desktop\xsl-conv1\main.cpp
 	<iostream>
 
-1673442562 source:c:\users\fahmed\desktop\xsl-conv1\classes.cpp
+1673443681 source:c:\users\fahmed\desktop\xsl-conv1\classes.cpp
 	<string>
 	<vector>
 	<iostream>
 
-1673343415 source:c:\users\fahmed\desktop\xsl-conv1\minifier.cpp
+1673443697 source:c:\users\fahmed\desktop\xsl-conv1\minifier.cpp
 	"minifier.h"
 
-1673345033 c:\users\fahmed\desktop\xsl-conv1\minifier.h
+1673443705 c:\users\fahmed\desktop\xsl-conv1\minifier.h
 	<string>
 	<algorithm>
 	<sstream>
 	<iostream>
 
-1673348128 source:c:\users\fahmed\desktop\xsl-conv1\parsing.cpp
+1673443709 source:c:\users\fahmed\desktop\xsl-conv1\parsing.cpp
 	"parsing.h"
 
-1673343415 c:\users\fahmed\desktop\xsl-conv1\parsing.h
+1673443758 c:\users\fahmed\desktop\xsl-conv1\parsing.h
 	<iostream>
 	<vector>
 	<string>
@@ -27,7 +27,7 @@
 	"classes.cpp"
 	"minifier.h"
 
-1673442562 c:\users\fahmed\desktop\xsl-conv1\classes.cpp
+1673443681 c:\users\fahmed\desktop\xsl-conv1\classes.cpp
 	<string>
 	<vector>
 	<iostream>
@@ -71,4 +71,16 @@
 
 1673275254 source:c:\users\felzhraa\desktop\new folder\xsl-converter\parsing.cpp
 	"parsing.h"
+
+1673443687 source:c:\users\fahmed\desktop\xsl-conv1\commentsmapping.cpp
+	"classes.cpp"
+	<iostream>
+	<map>
+
+1673444310 source:c:\users\fahmed\desktop\xsl-conv1\paths.cpp
+	"paths.h"
+
+1673444272 c:\users\fahmed\desktop\xsl-conv1\paths.h
+	"classes.cpp"
+	<string>
 
