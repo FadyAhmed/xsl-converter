@@ -2,7 +2,7 @@
 1584205420 source:c:\users\fahmed\desktop\xsl-conv1\main.cpp
 	<iostream>
 
-1673343415 source:c:\users\fahmed\desktop\xsl-conv1\classes.cpp
+1673442562 source:c:\users\fahmed\desktop\xsl-conv1\classes.cpp
 	<string>
 	<vector>
 	<iostream>
@@ -16,7 +16,7 @@
 	<sstream>
 	<iostream>
 
-1673343415 source:c:\users\fahmed\desktop\xsl-conv1\parsing.cpp
+1673348128 source:c:\users\fahmed\desktop\xsl-conv1\parsing.cpp
 	"parsing.h"
 
 1673343415 c:\users\fahmed\desktop\xsl-conv1\parsing.h
@@ -27,7 +27,7 @@
 	"classes.cpp"
 	"minifier.h"
 
-1673343415 c:\users\fahmed\desktop\xsl-conv1\classes.cpp
+1673442562 c:\users\fahmed\desktop\xsl-conv1\classes.cpp
 	<string>
 	<vector>
 	<iostream>

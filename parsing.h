@@ -9,19 +9,19 @@
 
 using namespace std;
 
-vector<string> getDeclarations(string& minString);
+vector<string> getDeclarations(string &minString);
 void testGetDeclarations();
-vector<string> parseComments(string& minString);
+vector<string> parseComments(string &minString);
 void testParseComments();
 TreeNode parseTag(string tag);
 void testParseTag();
-string getNextElementType(string& minString);
+string getNextElementType(string &minString);
 void testGetNextElementType();
 TreeNode parseComment(string comment);
 void testParseComment();
-TreeNode getNextElement(string& minString);
+TreeNode getNextElement(string &minString);
 void testGetNextElement();
-Tree parseXmlTree(string& minString);
+Tree parseXmlTree(string &minString);
 void testParseXmlTree();
 ProcessedFile parseXml(string text);
 void testParse();
