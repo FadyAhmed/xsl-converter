@@ -15,6 +15,7 @@ public:
     vector<TreeNode> children;
     vector<string> keys;   // for attributes
     vector<string> values; // for attributes
+    string path;
     bool isText;
     bool isComment;
 
@@ -23,6 +24,7 @@ public:
         isComment = isText = false;
         value = "";
         parent = NULL;
+        path  = "/";
     }
     TreeNode(string type, string val)
     {

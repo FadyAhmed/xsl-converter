@@ -8,20 +8,7 @@
 #include <vector>
 
 using namespace std;
-/*
-void mapComments(TreeNode* root) {
-    // map each comment to node
-    // delete isCommentFlag
-    if (root->isComment) {
-        root->value = "was Comment";
-        root->isComment = false;
-    }
-    for (int i = 0; i < root->children.size(); i++)
-    {
-        mapComments(&(root->children[i]));
-    }
-}
-*/
+
 string commentNodeType(TreeNode* root)
 {    string type ="";
     if (root->value == "Optional :")
@@ -37,9 +24,6 @@ string commentNodeType(TreeNode* root)
 }
 
 
-
-
-
 string assignPath (TreeNode* root ,std:: map<string,string>paths)
 {   TreeNode* child = &(root->children[0]);
     string key = child->value;//to
@@ -48,9 +32,7 @@ string assignPath (TreeNode* root ,std:: map<string,string>paths)
 }
 
 void convertToIf(TreeNode* root)
-{
-    //for testing assignPath function only
-    map<string,string>paths;
+{   map<string,string>paths;
     paths["to"]="/Body/to";
     paths["from"]="/Body/from";
 
@@ -74,6 +56,7 @@ void mapComments(TreeNode* root) {
     // map each comment to node
     // delete isCommentFlag
 
+
     if (root->isComment) {
        // root->value = "was Comment";
         string type =commentNodeType(root);
@@ -83,12 +66,35 @@ void mapComments(TreeNode* root) {
         {convertToForEach(root);}
         root->isComment = false;
     }
+
     for (int i = 0; i < root->children.size(); i++)
     {
+
         mapComments(&(root->children[i]));
     }
 }
 
+void assignPaths(TreeNode* root, string parentPath = "/") {
+
+    if(root->isComment){
+        root->path = parentPath;
+    }else{
+            root->path = parentPath + root->value + "/";
+
+    }
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        assignPaths(&(root->children[i]), root->path);
+    }
+}
+
+void printPaths(TreeNode* root) {
+    cout<<"tag: "<<root->value<<", "<<"Path: "<<root->path<<"\n";
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        printPaths(&(root->children[i]));
+    }
+}
 
 
 
@@ -110,6 +116,9 @@ int main()
 
 
     ProcessedFile f = parseXml(xmlText);
+    assignPaths(&f.tree.root);
+    cout<<"-------------------------------------\n";
+    printPaths(&f.tree.root);
     mapComments(&f.tree.root);
     f.print();
 
