@@ -1,6 +1,7 @@
 #ifndef PARSING_H
 #define PARSING_H
 #include <iostream>
+#include <fstream>
 #include <vector>
 #include <string>
 #include <stack>
@@ -25,5 +26,7 @@ Tree parseXmlTree(string &minString);
 void testParseXmlTree();
 ProcessedFile parseXml(string text);
 void testParse();
+//new
+vector<string> parsingCSV (string infile);
 
 #endif // PARSING_H
