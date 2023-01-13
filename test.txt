@@ -1,15 +1,16 @@
 <!-- upper comment -->
-<note>
-    <!--Optional :-->
-    <to>
-      <s>sa</s>0
-      <ss>as</ss>
-    </to>
-    <aa>a</aa>
-    <!--Optional :-->
-    <from>Jani</from>
-    <heading>Reminder</heading>
-    <body>Don't forget me this weekend!</body>
-</note> 
+<getPaymentOrderRequestObject>
+         <AgencyCode>aaa</AgencyCode>
+         <ContractReferenceNumber>lll</ContractReferenceNumber>
+         <!--Optional:-->
+         <PaymentOrderReferenceNumber>ffefef</PaymentOrderReferenceNumber>
+         <!--Optional:-->
+         <PaymentOrderNumber>fefef</PaymentOrderNumber>
+         <VendorCR>llll</VendorCR>
+         <ReleaseOrderReferenceNumber>fefefef</ReleaseOrderReferenceNumber>
+         <OrderApprovalStatusEn>kklklk</OrderApprovalStatusEn>
+         <!--Optional:-->
+         <PaymentMethodEn>fefef</PaymentMethodEn>
+</getPaymentOrderRequestObject>
 
 <!-- lower comment -->
