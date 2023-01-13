@@ -2,18 +2,20 @@
 #include <iostream>
 #include <map>
 
+
+/*
 string assignPath(TreeNode *root, std::map<string, string> paths)
 {
     TreeNode *child = &(root->children[0]);
     string key = child->value; // to
     string path = paths[key];
     return path;
-}
+}*/
 
 string commentNodeType(TreeNode *root)
 {
     string type = "";
-    if (root->value == "Optional :")
+    if (root->value == "Optional:")
     {
         type = "if";
         return type;
@@ -25,16 +27,16 @@ string commentNodeType(TreeNode *root)
     }
 }
 
-void convertToIf(TreeNode *root)
+void convertToIf(TreeNode *root,map<string, string> paths)
 {
-    map<string, string> paths;
-    paths["to"] = "/Body/to";
-    paths["from"] = "/Body/from";
+    //map<string, string> paths;
+    //paths["to"] = "/Body/to";
+    //paths["from"] = "/Body/from";
 
     string attribute = "test";
     root->value = "xsl:if";
     root->keys.push_back(attribute);
-    string path = assignPath(root, paths);
+    string path = paths[root->path];
     root->values.push_back(path);
 }
 
@@ -45,8 +47,36 @@ void convertToForEach(TreeNode *root)
     root->keys.push_back(attribute);
     root->values.push_back("path");
 }
+void convertToSelect(TreeNode *root,map<string,string> paths)
+{
+    string attribute = "select";
+    root->value = "xsl:value-of";
+    root->keys.push_back(attribute);
+    string p = paths[root->path];
+    cout << root->path;
+    cout <<"----------\n";
+    cout<<p;
 
-void mapComments(TreeNode *root)
+    root->values.push_back(p);
+}
+
+void mapText(TreeNode *root ,map<string,string> paths)
+{
+    // map each text to node
+    // delete isTextFlag
+
+    if (root->isText)
+    {   root->isText=false;
+        convertToSelect(root,paths);
+    }
+
+    for (int i = 0; i < root->children.size(); i++)
+    {
+        mapText(&(root->children[i]),paths);
+    }
+}
+
+void mapComments(TreeNode *root, map<string,string> paths)
 {
     // map each comment to node
     // delete isCommentFlag
@@ -57,7 +87,7 @@ void mapComments(TreeNode *root)
         string type = commentNodeType(root);
         if (type == "if")
         {
-            convertToIf(root);
+            convertToIf(root,paths);
         }
         else if (type == "for-each")
         {
@@ -68,6 +98,7 @@ void mapComments(TreeNode *root)
 
     for (int i = 0; i < root->children.size(); i++)
     {
-        mapComments(&(root->children[i]));
+        mapComments(&(root->children[i]),paths);
     }
 }
+
