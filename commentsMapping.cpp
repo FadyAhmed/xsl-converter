@@ -3,14 +3,6 @@
 #include <map>
 
 
-/*
-string assignPath(TreeNode *root, std::map<string, string> paths)
-{
-    TreeNode *child = &(root->children[0]);
-    string key = child->value; // to
-    string path = paths[key];
-    return path;
-}*/
 
 string commentNodeType(TreeNode *root)
 {
@@ -29,35 +21,32 @@ string commentNodeType(TreeNode *root)
 
 void convertToIf(TreeNode *root,map<string, string> paths)
 {
-    //map<string, string> paths;
-    //paths["to"] = "/Body/to";
-    //paths["from"] = "/Body/from";
-
     string attribute = "test";
     root->value = "xsl:if";
     root->keys.push_back(attribute);
-    string path = paths[root->path];
+    //here we used the path attribute of the comment node child , as the comment node has the path of the parent node
+    TreeNode *c = &(root-> children[0]);
+    string path = paths[c->path];
     root->values.push_back(path);
 }
 
-void convertToForEach(TreeNode *root)
+void convertToForEach(TreeNode *root ,map<string,string> paths)
 {
     string attribute = "select";
     root->value = "xsl:for-each";
     root->keys.push_back(attribute);
-    root->values.push_back("path");
+    //here we used the path attribute of the comment node child , as the comment node has the path of the parent node
+    TreeNode *c = &(root-> children[0]);
+    string path = paths[c->path];
+    root->values.push_back(path);
 }
 void convertToSelect(TreeNode *root,map<string,string> paths)
 {
     string attribute = "select";
     root->value = "xsl:value-of";
     root->keys.push_back(attribute);
-    string p = paths[root->path];
-    cout << root->path;
-    cout <<"----------\n";
-    cout<<p;
-
-    root->values.push_back(p);
+    string path = paths[root->path];
+    root->values.push_back(path);
 }
 
 void mapText(TreeNode *root ,map<string,string> paths)
@@ -91,7 +80,7 @@ void mapComments(TreeNode *root, map<string,string> paths)
         }
         else if (type == "for-each")
         {
-            convertToForEach(root);
+            convertToForEach(root,paths);
         }
         root->isComment = false;
     }

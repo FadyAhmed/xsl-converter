@@ -14,7 +14,7 @@ void mapComments(TreeNode *root, map<string,string> paths);
 // TODO: add pool of comments that indicate to something
 string commentNodeType(TreeNode *root);
 void convertToIf(TreeNode *root,map<string, string> paths);
-void convertToForEach(TreeNode *root);
+void convertToForEach(TreeNode *root ,map<string,string> paths);
 void convertToSelect(TreeNode *root,map<string,string> paths);
 void mapText(TreeNode *root, map<string,string>paths);
 #endif // COMMENTSMAPPING_H
