@@ -35,3 +35,12 @@ map<string, string> mappingPaths (vector<string> paths){
     }
     return m;
 }
+
+map<string, vector<string>> mappingPathsjson (vector<string> paths){
+    map<string,vector<string>>  m;
+     for(int i=0;i<paths.size();i+=3) {
+            m[paths[i+1]]={paths[i],paths[i+2]};
+    }
+    return m;
+}
+

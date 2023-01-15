@@ -9,4 +9,5 @@ using namespace std;
 void assignPaths(TreeNode *root, string parentPath = "/");
 void printPaths(TreeNode *root);
 map<string, string> mappingPaths (vector<string> paths);
+map<string, vector<string>> mappingPathsjson (vector<string> paths);
 #endif // PATHS_H
