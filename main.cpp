@@ -11,20 +11,45 @@
 using namespace std;
 
  //Template for overloading insertion operator to print map
-template <typename key, typename value>
+ template <typename key, typename value>
 ostream &operator<<(ostream &stream, const map<key, value> &myMap)
 {
     for(const pair<key, value> &t: myMap)
     {
-        stream << t.first<<" "<<t.second<<" "<<endl;
+        stream << t.first<<" "<<t.second[0] <<" "<<t.second[1] <<" "<<endl;
     }
     return stream;
 }
 
+/*
+void xmlTestbench (string inputxmlfileName , string inputcsvpaths){
+    ifstream MyReadFile(inputxmlfileName);
+    string myText = "";
+    string xmlText = "";
 
-int main()
-{
-    ifstream MyReadFile("test.txt");
+    while (getline(MyReadFile, myText))
+    {
+        xmlText += myText;
+    }
+    MyReadFile.close();
+
+    vector<string> words= parsingCSV(inputcsvpaths);
+    ProcessedFile f = parseXml(xmlText);
+    assignPaths(&f.tree.root);
+    cout << "---------------paths----------------------\n";
+    printPaths(&f.tree.root);
+    map<string,string> m;
+    m= mappingPaths(words);
+    cout<<"----------printing map------------\n";
+    cout << m;
+    cout<<"----------------------------------\n";
+    mapComments(&f.tree.root,m);
+    mapText(&f.tree.root,m);
+    f.print();
+}*/
+
+void jsonTestbench (string inputxmlfileName , string inputcsvpaths){
+    ifstream MyReadFile(inputxmlfileName);
     string myText = "";
     string xmlText = "";
     // Use a while loop together with the getline() function to read the file line by line
@@ -35,18 +60,25 @@ int main()
     // Close the file
     MyReadFile.close();
 
-    auto words= parsingCSV("sample.csv");
+    auto words= parsingCSV(inputcsvpaths);
 
     ProcessedFile f = parseXml(xmlText);
     assignPaths(&f.tree.root);
     cout << "-------------------------------------\n";
-    //printPaths(&f.tree.root);
-    map<string, string> m;
-    m= mappingPaths(words);
+    printPaths(&f.tree.root);
+    map<string, vector<string>> m;
+    m= mappingPathsjson(words);
+    cout<<"------------";
     cout << m;
-    mapComments(&f.tree.root,m);
-    mapText(&f.tree.root,m);
-    f.print();
+    //mapComments(&f.tree.root,m);
+    //mapText(&f.tree.root,m);
+   // f.print();
+}
+
+int main()
+{
+    //xmlTestbench ("test.txt" , "sampleXml.csv");
+    jsonTestbench ("test.txt" , "sampleJson.csv");
 
     return 0;
 }
