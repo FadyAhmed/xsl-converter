@@ -21,7 +21,7 @@ ostream &operator<<(ostream &stream, const map<key, value> &myMap)
     return stream;
 }
 
-/*
+
 void xmlTestbench (string inputxmlfileName , string inputcsvpaths){
     ifstream MyReadFile(inputxmlfileName);
     string myText = "";
@@ -46,38 +46,36 @@ void xmlTestbench (string inputxmlfileName , string inputcsvpaths){
     mapComments(&f.tree.root,m);
     mapText(&f.tree.root,m);
     f.print();
-}*/
+}
 
 void jsonTestbench (string inputxmlfileName , string inputcsvpaths){
     ifstream MyReadFile(inputxmlfileName);
     string myText = "";
     string xmlText = "";
-    // Use a while loop together with the getline() function to read the file line by line
-    while (getline(MyReadFile, myText))
-    {// Output the text from the file
+    {
         xmlText += myText;
     }
-    // Close the file
     MyReadFile.close();
 
     auto words= parsingCSV(inputcsvpaths);
 
     ProcessedFile f = parseXml(xmlText);
     assignPaths(&f.tree.root);
-    cout << "-------------------------------------\n";
+    cout<<"----------printing Paths------------\n";
     printPaths(&f.tree.root);
     map<string, vector<string>> m;
     m= mappingPathsjson(words);
-    cout<<"------------";
+    cout<<"----------printing map------------\n";
     cout << m;
+    cout<<"----------------------------------\n";
     //mapComments(&f.tree.root,m);
     //mapText(&f.tree.root,m);
    // f.print();
 }
 
 int main()
-{
-    //xmlTestbench ("test.txt" , "sampleXml.csv");
+{   //comment one of the testbenchs
+    xmlTestbench ("test.txt" , "sampleXml.csv");
     jsonTestbench ("test.txt" , "sampleJson.csv");
 
     return 0;
